@@ -4,20 +4,20 @@
 #include <string.h>
 #include <conio.h>
 
-//ÖĞÎÄÇë¼Ù¹ÜÀíÏµÍ³
+//ä¸­æ–‡è¯·å‡ç®¡ç†ç³»ç»Ÿ
 int n1=0,n2=0,n3=0;
 int replace=0;
-void number_w()//ÓÃ¶îÍâµÄÎÄ¼şÀ´´æ´¢ÓÃ»§Êı
+void number_w()//ç”¨é¢å¤–çš„æ–‡ä»¶æ¥å­˜å‚¨ç”¨æˆ·æ•°
 {
     FILE * fp=fopen("number.txt","w");
-    //Ñ§Éú,½ÌÊ¦£¬Çë¼Ù±íÊıÁ¿
+    //å­¦ç”Ÿ,æ•™å¸ˆï¼Œè¯·å‡è¡¨æ•°é‡
     fprintf(fp,"%10d%10d%10d",n1,n2,n3);
     fclose(fp);
 }
 void number_r()
 {
     FILE * fp=fopen("number.txt","r");
-    //Ñ§Éú,½ÌÊ¦£¬Çë¼Ù±íÊıÁ¿
+    //å­¦ç”Ÿ,æ•™å¸ˆï¼Œè¯·å‡è¡¨æ•°é‡
     fscanf(fp,"%10d%10d%10d",&n1,&n2,&n3);
     fclose(fp);
 }
@@ -43,24 +43,24 @@ struct leave
 
 void menu1()
 {
-    printf("#######ÕËºÅµÇÂ¼×¢²á½çÃæ######\n");
-    printf("1.µÇÂ¼\n");
-    printf("2.×¢²á\n");
-    printf("3.ÍË³ö\n");
+    printf("#######è´¦å·ç™»å½•æ³¨å†Œç•Œé¢######\n");
+    printf("1.ç™»å½•\n");
+    printf("2.æ³¨å†Œ\n");
+    printf("3.é€€å‡º\n");
 }
 
-int content1()                                    //µÇÂ¼
+int content1()                                    //ç™»å½•
 {
     int i,rg;
-    //»ñÈ¡×¢²á±íĞÅÏ¢
+    //è·å–æ³¨å†Œè¡¨ä¿¡æ¯
     rg=r_situation();
                                 if(0==rg)
                                                                             {
     char id_s[100],ps[100];
-    printf("Ñ§ºÅ/½Ì¹¤ºÅ£º\n");
+    printf("å­¦å·/æ•™å·¥å·ï¼š\n");
     getchar();
     gets(id_s);
-    printf("ÃÜÂë£º\n");
+    printf("å¯†ç ï¼š\n");
     gets(ps);
     for(i=0;i<n2;i++)
     {
@@ -68,11 +68,11 @@ int content1()                                    //µÇÂ¼
         {
             if(0==strcmp(p[i].password_2,ps))
             {
-                printf("ÀÏÊ¦ÄúºÃ,»¶Ó­µÇÂ¼£¡");
+                printf("è€å¸ˆæ‚¨å¥½,æ¬¢è¿ç™»å½•ï¼");
                 Sleep(1000);
                 system("cls");
                 return menu4();
-            }             //·µ»Ø0ÊÇÍË³ö
+            }             //è¿”å›0æ˜¯é€€å‡º
         }
     }
     for(i=0;i<n1;i++)
@@ -80,7 +80,7 @@ int content1()                                    //µÇÂ¼
          if(0==strcmp(s[i].id_1,id_s))
         {
               if(0==strcmp(s[i].password_1,ps))
-                {printf("Ñ§ÉúÄúºÃ,»¶Ó­µÇÂ¼£¡");
+                {printf("å­¦ç”Ÿæ‚¨å¥½,æ¬¢è¿ç™»å½•ï¼");
                 replace=i;
                 Sleep(1000);
                 system("cls");
@@ -88,14 +88,14 @@ int content1()                                    //µÇÂ¼
                 }
         }
      }
-         printf( "ÕËºÅ»òÃÜÂë´íÎó£¡");
+         printf( "è´¦å·æˆ–å¯†ç é”™è¯¯ï¼");
          Sleep(1000);
         system("cls");
-         return 1;//·µ»Ø
+         return 1;//è¿”å›
                                                                                 }
                                         else if(-1==rg)
                                         {
-                                            return -1;//±¨´í
+                                            return -1;//æŠ¥é”™
                                         }
                                         else
     {
@@ -105,24 +105,24 @@ int content1()                                    //µÇÂ¼
     }
 }
 
-void menu2()//×¢²á
+void menu2()//æ³¨å†Œ
 {
-    printf("1.Ñ§Éú\n");
-    printf("2.½ÌÊ¦\n");
-    printf("3.·µ»Ø\n");
+    printf("1.å­¦ç”Ÿ\n");
+    printf("2.æ•™å¸ˆ\n");
+    printf("3.è¿”å›\n");
 }
 
 int content_stu()
 {
     int rg;
-    printf("ÇëÊäÈëÄúµÄĞÕÃû£º\n");
+    printf("è¯·è¾“å…¥æ‚¨çš„å§“åï¼š\n");
     getchar();
     gets(s[n1].name);
-    printf("ÇëÊäÈëÄúµÄÑ§ºÅ£º\n");
+    printf("è¯·è¾“å…¥æ‚¨çš„å­¦å·ï¼š\n");
     gets(s[n1].id_1);
-    printf("ÇëÊäÈëÄúµÄÃÜÂë£º\n");
+    printf("è¯·è¾“å…¥æ‚¨çš„å¯†ç ï¼š\n");
     gets(s[n1].password_1);
-    n1++;//×¢²áĞÅÏ¢Íê³Éºó¾ÍÒÑ¾­Ìí¼ÓÒ»ÃûÓÃ»§
+    n1++;//æ³¨å†Œä¿¡æ¯å®Œæˆåå°±å·²ç»æ·»åŠ ä¸€åç”¨æˆ·
     number_w();
     rg=w_situation();
     return rg;
@@ -131,18 +131,18 @@ int content_stu()
 int content_teacher()
 {
     int rg;
-    printf("ÇëÊäÈëÄúµÄ½Ì¹¤ºÅ£º\n");
+    printf("è¯·è¾“å…¥æ‚¨çš„æ•™å·¥å·ï¼š\n");
     getchar();
     gets(p[n2].id_2);
-    printf("ÇëÊäÈëÄúµÄÃÜÂë£º\n");
+    printf("è¯·è¾“å…¥æ‚¨çš„å¯†ç ï¼š\n");
     gets(p[n2].password_2);
     n2++;
     number_w();
-    rg=w_situation();                                                        // printf("%s",&p[n2].password_2); ²âÊÔµÄ´úÂë
+    rg=w_situation();                                                        // printf("%s",&p[n2].password_2); æµ‹è¯•çš„ä»£ç 
     return rg;
 }
 
-//½«×¢²áĞÅÏ¢±£´æµ½ÎÄ¼şÖĞ
+//å°†æ³¨å†Œä¿¡æ¯ä¿å­˜åˆ°æ–‡ä»¶ä¸­
 int w_situation()
 {
     int i;
@@ -154,18 +154,18 @@ int w_situation()
     }
     for(i=0;i<n1;i++)
     {
-        fprintf(sp,"%-15s%-15s%-15s\n",s[i].name,s[i].id_1,s[i].password_1);//Ñ§ÉúĞÅÏ¢
+        fprintf(sp,"%-15s%-15s%-15s\n",s[i].name,s[i].id_1,s[i].password_1);//å­¦ç”Ÿä¿¡æ¯
     }
     for(i=0;i<n2;i++)
     {
-        fprintf(fp,"%-15s%-15s\n",p[i].id_2,p[i].password_2);//½ÌÊ¦ĞÅÏ¢
+        fprintf(fp,"%-15s%-15s\n",p[i].id_2,p[i].password_2);//æ•™å¸ˆä¿¡æ¯
     }
     fclose(fp);
     fclose(sp);
     return 0;
 }
 
-//»ñÈ¡ĞÅÏ¢
+//è·å–ä¿¡æ¯
 int r_situation()
 {
     int i,n=0;
@@ -192,24 +192,24 @@ int r_situation()
     return 0;
 }
 
-//Ñ§ÉúÏµÍ³·½ÃæµÄ¹¦ÄÜ±í
+//å­¦ç”Ÿç³»ç»Ÿæ–¹é¢çš„åŠŸèƒ½è¡¨
 int menu3()
 {
     int i,input=0;
     that:
-    printf("1.Çë¼ÙÉêÇë\n");
-    printf("2.ÉêÇë×´Ì¬\n");
-    printf("3.ÍË³ö\n");
-    printf("4.·µ»Ø\n");
-    printf("ÇëÑ¡Ôñ£º");
+    printf("1.è¯·å‡ç”³è¯·\n");
+    printf("2.ç”³è¯·çŠ¶æ€\n");
+    printf("3.é€€å‡º\n");
+    printf("4.è¿”å›\n");
+    printf("è¯·é€‰æ‹©ï¼š");
     scanf("%d",&input);
     switch(input)
     {
     case 1:
-        system("cls");//ÉêÇë±íÌîĞ´
+        system("cls");//ç”³è¯·è¡¨å¡«å†™
         if(write()<0)
             {
-                printf("ÌîĞ´Ê§°Ü£¬ÇëÁªÏµ¹ÜÀíÔ±¡£");
+                printf("å¡«å†™å¤±è´¥ï¼Œè¯·è”ç³»ç®¡ç†å‘˜ã€‚");
                 Sleep(1000);
             }
         goto that;
@@ -217,7 +217,7 @@ int menu3()
         system("cls");
         if(r_le()<0)
             {
-                    printf(" Î´ÕÒµ½£¬ÊÇ·ñÓĞÌîĞ´ÉêÇë±í?");
+                    printf(" æœªæ‰¾åˆ°ï¼Œæ˜¯å¦æœ‰å¡«å†™ç”³è¯·è¡¨?");
                     Sleep(1000);
                     system("cls");
                     goto that;
@@ -229,15 +229,15 @@ int menu3()
                  if(0==strcmp(le[i].name,s[replace].name))
                    {
                         printf("%-15s%-15s%-15s%-15s\n","name","time","cause","status");
-                        printf("%-15s%-15s%-15s%-15s\n",le[i].name,le[i].time,le[i].cause,"ÉêÇëÖĞ");
-                        printf("°´ÈÎÒâ¼ü·µ»Ø");
+                        printf("%-15s%-15s%-15s%-15s\n",le[i].name,le[i].time,le[i].cause,"ç”³è¯·ä¸­");
+                        printf("æŒ‰ä»»æ„é”®è¿”å›");
                         getch();
                         system("cls");
                         goto that;
                    }
-                 //·ñÔò¼ÌĞøÑ­»·Ö±µ½ÍË³ö
+                 //å¦åˆ™ç»§ç»­å¾ªç¯ç›´åˆ°é€€å‡º
              }
-             printf(" Î´ÕÒµ½£¬ÊÇ·ñÓĞÌîĞ´ÉêÇë±í?");
+             printf(" æœªæ‰¾åˆ°ï¼Œæ˜¯å¦æœ‰å¡«å†™ç”³è¯·è¡¨?");
              Sleep(1000);
              system("cls");
              goto that;
@@ -250,24 +250,24 @@ int menu3()
         goto that;
     }
 }
-int write()//ÉêÇë±íÌîĞ´
+int write()//ç”³è¯·è¡¨å¡«å†™
 {
     int rg;
-    printf("ÇëÊäÈëÄúµÄĞÕÃû£º\n");
+    printf("è¯·è¾“å…¥æ‚¨çš„å§“åï¼š\n");
     getchar();
     gets(le[n3].name);
-    printf("ÇëÊäÈëÉêÇëÈÕÆÚ£º\n");
+    printf("è¯·è¾“å…¥ç”³è¯·æ—¥æœŸï¼š\n");
     gets(le[n3].time);
-    printf("ÇëÊäÈëÉêÇëÔ­Òò£º\n");
+    printf("è¯·è¾“å…¥ç”³è¯·åŸå› ï¼š\n");
     gets(le[n3].cause);
-    n3++;         //¼ÙÌõÊı
+    n3++;         //å‡æ¡æ•°
     number_w();
     rg=w_le();
     system("cls");
     return rg;
 }
 
-int w_le()//Çë¼ÙĞÅÏ¢ÊäÈëÎÄ¼ş
+int w_le()//è¯·å‡ä¿¡æ¯è¾“å…¥æ–‡ä»¶
 {
     int i;
     FILE * fp=fopen("le.txt","w");
@@ -283,16 +283,16 @@ int w_le()//Çë¼ÙĞÅÏ¢ÊäÈëÎÄ¼ş
     return 0;
 }
 
-//½ÌÊ¦ÏµÍ³·½ÃæµÄ¹¦ÄÜ±í
+//æ•™å¸ˆç³»ç»Ÿæ–¹é¢çš„åŠŸèƒ½è¡¨
 int menu4()
 {
     int input=0;
     the:
-    printf("1.Ñ§ÉúÇë¼ÙÌõĞÅÏ¢:\n");
-    printf("2.ÅúÔÄÇë¼ÙÌõ:\n");
-    printf("3.ÍË³ö\n");
-    printf("4.·µ»Ø\n");
-    printf("ÇëÑ¡Ôñ£º");
+    printf("1.å­¦ç”Ÿè¯·å‡æ¡ä¿¡æ¯:\n");
+    printf("2.æ‰¹é˜…è¯·å‡æ¡:\n");
+    printf("3.é€€å‡º\n");
+    printf("4.è¿”å›\n");
+    printf("è¯·é€‰æ‹©ï¼š");
     scanf("%d",&input);
     switch(input)
     {
@@ -317,16 +317,16 @@ int menu4()
 void loup()
 {
     int i;
-    printf("Ñ§ÉúÇë¼ÙÌõĞÅÏ¢:\n");
+    printf("å­¦ç”Ÿè¯·å‡æ¡ä¿¡æ¯:\n");
     printf("%-15s%-15s%-15s%-15s%-15s\n","number","name","time","cause","status");
     for(i=0;i<n3;i++)
     {
         if(le[i].status!=0)
             printf("%-15d%-15s%-15s%-15s%-15s\n",i+1,le[i].name,le[i].time,le[i].cause,le[i].status);
         else
-            printf("%-15d%-15s%-15s%-15s%-15s\n",i+1,le[i].name,le[i].time,le[i].cause,"ÉêÇëÖĞ");
+            printf("%-15d%-15s%-15s%-15s%-15s\n",i+1,le[i].name,le[i].time,le[i].cause,"ç”³è¯·ä¸­");
     }
-    printf("°´ÈÎÒâ¼ü·µ»Ø");
+    printf("æŒ‰ä»»æ„é”®è¿”å›");
     getch();
     system("cls");
 }
@@ -335,7 +335,7 @@ void change()
 {
     char xh[100]="sd";
     int i;
-    printf("ÊäÈëÒªÅúÔÄµÄÑ§ÉúĞÕÃû£º");
+    printf("è¾“å…¥è¦æ‰¹é˜…çš„å­¦ç”Ÿå§“åï¼š");
     scanf("%s",xh);
     for(i=0;i<n3;i++)
     {
@@ -345,16 +345,16 @@ void change()
             if(le[i].status!=0)
                 printf("%-15d%-15s%-15s%-15s%-15s\n",i+1,le[i].name,le[i].time,le[i].cause,le[i].status);
             else
-                printf("%-15d%-15s%-15s%-15s%-15s\n",i+1,le[i].name,le[i].time,le[i].cause,"ÉêÇëÖĞ");
-            printf("ÄúÊÇ·ñÅú×¼/¾Ü¾ø£¿(ÇëÊäÈë)\n");
+                printf("%-15d%-15s%-15s%-15s%-15s\n",i+1,le[i].name,le[i].time,le[i].cause,"ç”³è¯·ä¸­");
+            printf("æ‚¨æ˜¯å¦æ‰¹å‡†/æ‹’ç»ï¼Ÿ(è¯·è¾“å…¥)\n");
             scanf("%s",le[i].status);
             r_le();
             goto this;
         }
     }
-            printf("ÕÒ²»µ½¸ÃÍ¬Ñ§£¡");
+            printf("æ‰¾ä¸åˆ°è¯¥åŒå­¦ï¼");
             this:
-    printf("°´ÈÎÒâ¼ü·µ»Ø");
+    printf("æŒ‰ä»»æ„é”®è¿”å›");
     getch();
     system("cls");
 }
@@ -386,21 +386,21 @@ int r_le()
 //}
 
 int main()
-{//ĞèÒª³õÊ¼»¯È¥Ê¹ÓÃµÄº¯Êı
+{//éœ€è¦åˆå§‹åŒ–å»ä½¿ç”¨çš„å‡½æ•°
     number_r();
     r_situation();
     r_le();
-    //²Ëµ¥À¸
+    //èœå•æ 
     int i=10,j,input=0;
     again:
     menu1();
-    printf("ÇëÑ¡Ôñ£º");
+    printf("è¯·é€‰æ‹©ï¼š");
     scanf("%d",&input);
-    switch(input)//Ñ¡Ôñ¹¦ÄÜ
+    switch(input)//é€‰æ‹©åŠŸèƒ½
     {
            case 1:
                system("cls");
-               //µÇÂ¼
+               //ç™»å½•
                j=content1();
                if(j>0)
                {
@@ -409,50 +409,50 @@ int main()
                }
                else if(j<0)
                {
-                    printf("Ã»ÓĞÄúµÄ×¢²áĞÅÏ¢£¡");
+                    printf("æ²¡æœ‰æ‚¨çš„æ³¨å†Œä¿¡æ¯ï¼");
                     Sleep(1000);
                     system("cls");
                     goto again;
                }
                else
                break;
-           case 2://×¢²á
+           case 2://æ³¨å†Œ
                system("cls");
                zhuce:
                menu2();
-                   printf("ÇëÑ¡Ôñ£º");
+                   printf("è¯·é€‰æ‹©ï¼š");
                    scanf("%d",&input);
-                   switch(input)//Ñ§Éú×¢²á½çÃæ
+                   switch(input)//å­¦ç”Ÿæ³¨å†Œç•Œé¢
                    {
                        case 1:
                          if(content_stu()<0)
                          {
-                             printf("×¢²áÊ§°Ü£¬ÇëÁªÏµ¹ÜÀíÔ±¡£");
+                             printf("æ³¨å†Œå¤±è´¥ï¼Œè¯·è”ç³»ç®¡ç†å‘˜ã€‚");
                              Sleep(1000);
                              n1--;
                          }
                          else
-                            {printf("×¢²á³É¹¦£¡");
+                            {printf("æ³¨å†ŒæˆåŠŸï¼");
                             Sleep(1000);
                             system("cls");
                             goto again;}
-                       case 2://ÀÏÊ¦×¢²á
+                       case 2://è€å¸ˆæ³¨å†Œ
                          if(content_teacher()<0)
                          {
-                             printf("×¢²áÊ§°Ü£¬ÇëÁªÏµ¹ÜÀíÔ±¡£");
+                             printf("æ³¨å†Œå¤±è´¥ï¼Œè¯·è”ç³»ç®¡ç†å‘˜ã€‚");
                              Sleep(1000);
                              n2--;
                          }
                          else
                             {Sleep(1000);
-                            printf("×¢²á³É¹¦£¡");
+                            printf("æ³¨å†ŒæˆåŠŸï¼");
                             system("cls");
                             goto again;}
                        case 3:
                           system("cls");
                           goto again;
                       default:
-                         printf("´íÎó£¡ÇëÔÙ´ÎÑ¡Ôñ\n");
+                         printf("é”™è¯¯ï¼è¯·å†æ¬¡é€‰æ‹©\n");
                          Sleep(1000);
                          system("cls");
                          goto zhuce;
@@ -461,14 +461,14 @@ int main()
            case 3:
                break;
            default:
-               printf("´íÎó£¡ÇëÔÙ´ÎÑ¡Ôñ\n");
+               printf("é”™è¯¯ï¼è¯·å†æ¬¡é€‰æ‹©\n");
                Sleep(1000);
                system("cls");
                goto again;
      }
      Sleep(1000);
      system("cls");
-     //×îºóÔÙ±£´æ
+     //æœ€åå†ä¿å­˜
      w_situation();
      w_le();
      return 0;
